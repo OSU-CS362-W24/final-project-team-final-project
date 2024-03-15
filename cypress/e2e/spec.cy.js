@@ -32,7 +32,10 @@ describe('Chart Builder App', () => {
     cy.findAllByLabelText('X').eq(4).type('5'); 
     cy.findAllByLabelText('Y').eq(4).type('40'); 
     
-    //cy.findByLabelText('Chart color').click();
+    //Change color of graph
+    cy.get('input[type=color]')
+    .invoke('val', '#00ffff')
+    .trigger('change')
 
     //Generate chart
     cy.findByText('Generate chart').click();
@@ -70,8 +73,11 @@ describe('Chart Builder App', () => {
     cy.findAllByLabelText('X').eq(4).type('5'); 
     cy.findAllByLabelText('Y').eq(4).type('40'); 
 
-    //cy.findByLabelText('Chart color').click();
-    
+    //Change color of graph
+    cy.get('input[type=color]')
+    .invoke('val', '#00ffff')
+    .trigger('change')
+
     //Navigate to scatter
     cy.findByText('Scatter').click();
 
@@ -96,6 +102,9 @@ describe('Chart Builder App', () => {
     cy.findAllByLabelText('X').eq(4).should('have.value', '5');
     cy.findAllByLabelText('Y').eq(4).should('have.value', '40');
 
+    //Assert color change
+    cy.get('input[type=color]').should('have.value', '#00ffff');
+
     //Navigate to bar
     cy.findByText('Bar').click();
 
@@ -119,6 +128,9 @@ describe('Chart Builder App', () => {
   
     cy.findAllByLabelText('X').eq(4).should('have.value', '5');
     cy.findAllByLabelText('Y').eq(4).should('have.value', '40');
+
+    //Assert color change
+    cy.get('input[type=color]').should('have.value', '#00ffff');
   });
 
   it('Saving a chart to the “gallery” ', () => {
@@ -150,7 +162,10 @@ describe('Chart Builder App', () => {
     cy.findAllByLabelText('X').eq(4).type('5'); 
     cy.findAllByLabelText('Y').eq(4).type('40'); 
     
-    //cy.findByLabelText('Chart color').click();
+    //Change color of graph
+    cy.get('input[type=color]')
+    .invoke('val', '#00ffff')
+    .trigger('change')
 
     //Generate chart
     cy.findByText('Generate chart').click();
@@ -194,7 +209,10 @@ describe('Chart Builder App', () => {
     cy.findAllByLabelText('X').eq(4).type('5'); 
     cy.findAllByLabelText('Y').eq(4).type('40'); 
     
-    //cy.findByLabelText('Chart color').click();
+    //Change color of graph
+    cy.get('input[type=color]')
+    .invoke('val', '#00ffff')
+    .trigger('change')
 
     //Generate chart
     cy.findByText('Generate chart').click();
@@ -231,5 +249,8 @@ describe('Chart Builder App', () => {
   
     cy.findAllByLabelText('X').eq(4).should('have.value', '5');
     cy.findAllByLabelText('Y').eq(4).should('have.value', '40');
+
+    //Assert color change
+    cy.get('input[type=color]').should('have.value', '#00ffff');
   });
 })
