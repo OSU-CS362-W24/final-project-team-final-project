@@ -37,6 +37,18 @@ test('saveChart function should save chart data to localStorage', () => {
   expect(savedCharts).toEqual([chartData]);
 });
 
+test('saveChart function should add a new chart to the end of the array if no index specified', () => {
+  const initialCharts = [{ data: 'existing data' }];
+  localStorage.setItem('savedCharts', JSON.stringify(initialCharts));
+
+  const newChartData = { data: 'new data' };
+  saveChart(newChartData);
+
+  const savedCharts = loadAllSavedCharts();
+  expect(savedCharts).toHaveLength(2); // Check if the length of savedCharts array is 2
+  expect(savedCharts[1]).toEqual(newChartData); // Check if the new chart is added at the end
+});
+
 test('loadAllSavedCharts function should load all saved charts from localStorage', () => {
   localStorage.setItem('savedCharts', JSON.stringify([{ name: 'chart1' }, { name: 'chart2' }]));
   const savedCharts = loadAllSavedCharts();
