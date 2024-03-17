@@ -17,9 +17,9 @@ describe('sortPoints', () => {
 
     test('do not sort points with non-numeric X values', () => {
         const points = [
-            { x: 'foo', y: 5 },
+            { x: 'test', y: 5 },
             { x: 1, y: 2 },
-            { x: 'bar', y: 7 },
+            { x: 'blue', y: 7 },
         ];
         const sortedPoints = sortPoints(points);
         expect(sortedPoints).toEqual(points);

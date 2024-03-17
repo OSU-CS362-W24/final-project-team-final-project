@@ -1,1 +1,1 @@
-const generateChartingImg = require("./generateChartingImg");
+const generateChartImg = require("./generateChartImg");
